@@ -1,0 +1,55 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewIAMConfiguration",
+            "Effect": "Allow",
+            "Action": [
+                "iam:Get*",
+                "iam:List*",
+                "iam:GenerateCredentialReport",
+                "iam:GetCredentialReport"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ViewS3BucketConfiguration",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+                "s3:ListBucket",
+                "s3:GetBucketPolicy",
+                "s3:GetBucketAcl",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:GetEncryptionConfiguration",
+                "s3:GetBucketLogging",
+                "s3:GetBucketVersioning",
+                "s3:GetBucketTagging",
+                "s3:GetBucketOwnershipControls"
+            ],
+            "Resource": [
+                "*",
+                "arn:aws:s3:::minisec-iam-lab-nhatminh-2026"
+            ]
+        },
+        {
+            "Sid": "DenyAllIAMAndS3Modification",
+            "Effect": "Deny",
+            "Action": [
+                "iam:Create*",
+                "iam:Update*",
+                "iam:Delete*",
+                "iam:Attach*",
+                "iam:Detach*",
+                "iam:Put*",
+                "iam:Add*",
+                "iam:Remove*",
+                "s3:Put*",
+                "s3:Delete*",
+                "s3:CreateBucket"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

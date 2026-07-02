@@ -1,0 +1,5 @@
+2026-07-02 10:15:01 INFO  MiniSecApp started successfully
+2026-07-02 10:15:08 INFO  User dev-user accessed /dev/dev.txt
+2026-07-02 10:16:22 WARN  Failed login attempt for intern-user
+2026-07-02 10:17:05 INFO  Security audit check completed
+2026-07-02 10:18:44 ERROR Access denied when trying to read /prod/prod.txt

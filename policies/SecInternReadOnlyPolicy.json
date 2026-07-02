@@ -1,0 +1,44 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ConsoleSupportForS3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ListLabBucket",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::minisec-iam-lab-nhatminh-2026"
+        },
+        {
+            "Sid": "ReadOnlyDevFolder",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::minisec-iam-lab-nhatminh-2026/dev/*"
+        },
+        {
+            "Sid": "DenyWriteAndDelete",
+            "Effect": "Deny",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject",
+                "s3:DeleteBucket",
+                "s3:PutBucketPolicy",
+                "s3:DeleteBucketPolicy",
+                "s3:PutBucketPublicAccessBlock",
+                "s3:PutBucketAcl",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::minisec-iam-lab-nhatminh-2026",
+                "arn:aws:s3:::minisec-iam-lab-nhatminh-2026/*"
+            ]
+        }
+    ]
+}
